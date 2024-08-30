@@ -9,8 +9,6 @@ app.get('/hello', (req: Request, res: Response) => {
   res.json({
     greeting: `Hello, ${name}`
   });
-
-  
 });
 
 app.get('/info', (req: Request, res: Response) => {
@@ -25,12 +23,10 @@ app.get('/info', (req: Request, res: Response) => {
       headers: req.headers
     };
   
-    // Print the info object in a readable format to the console
-    
     res.json(info);
     console.log('GET /info - Request Information:\n', JSON.stringify(info, null, 2));
   });
-  
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
