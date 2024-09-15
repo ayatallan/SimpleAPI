@@ -12,21 +12,25 @@ app.get('/hello', (req: Request, res: Response) => {
 });
 
 app.get('/info', (req: Request, res: Response) => {
-    const clientAddress = req.ip;
-    const hostName = os.hostname();
-    const requestTime = new Date().toISOString();
-    
-    const info = {
-      time: requestTime,
-      client_address: clientAddress,
-      host_name: hostName,
-      headers: req.headers
-    };
+  const clientAddress = req.ip;
+  const hostName = os.hostname();
+  const requestTime = new Date().toISOString();
   
-    res.json(info);
-    console.log('GET /info - Request Information:\n', JSON.stringify(info, null, 2));
-  });
+  const info = {
+    time: requestTime,
+    client_address: clientAddress,
+    host_name: hostName,
+    headers: req.headers
+  };
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  res.json(info);
+  console.log('GET /info - Request Information:\n', JSON.stringify(info, null, 2));
 });
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;

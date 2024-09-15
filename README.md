@@ -20,7 +20,10 @@ Before running the application, ensure you have the following installed on your 
    ```bash
    npm start
    ```
-
+2. Run test cases:
+   ```bash
+   npm test
+   ```
 ## Usage
 
 - Visit the following URL to get request and server details:
